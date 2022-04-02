@@ -2,8 +2,8 @@ from selenium.webdriver.common.by import By
 # py -m pytest -v --tb=line --language=en test_main_page.py
 from pages.main_page import MainPage
 
-link = "http://selenium1py.pythonanywhere.com/"
-
+link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer "
+#link = "http://selenium1py.pythonanywhere.com/catalogue/category/books_2/"
 def go_to_login_page(browser):
     login_link = browser.find_element(By.CSS_SELECTOR, "#login_link")
     login_link.click()
