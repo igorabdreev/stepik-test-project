@@ -13,3 +13,8 @@ class LoginPageLocators():
     REGISER_FORM_PASSWORD = (By.CSS_SELECTOR, "#id_registration-password1")
     REGISER_FORM_PASSWORD2 = (By.CSS_SELECTOR, "#id_registration-password2")
 
+class AddPageLocators():
+    ADD_BOOK = (By.CSS_SELECTOR, "#add_to_basket_form")
+
+
+
