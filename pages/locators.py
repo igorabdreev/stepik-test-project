@@ -15,6 +15,7 @@ class LoginPageLocators():
 
 class AddPageLocators():
     ADD_BOOK = (By.CSS_SELECTOR, "#add_to_basket_form")
-
-
-
+    PRODUCT_NAME = (By.CSS_SELECTOR, "div.product_main h1") # название книги
+    PRODUCT_NAME_IN_MESSAGE = (By.CSS_SELECTOR, "div.alertinner strong") # название книги которое было добавлено
+    PRODUCT_PRICE = (By.CSS_SELECTOR, "div.product_main p")
+    PRODUCT_PRICE_BASKET = (By.CSS_SELECTOR, ".alert-info .alertinner strong")
