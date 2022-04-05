@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
 from pages.locators import AddPageLocators
+
 from selenium.common.exceptions import NoAlertPresentException # в начале файла
 import math
 class ProductPage(BasePage):
@@ -44,3 +45,11 @@ class ProductPage(BasePage):
         # Проверяем, что цена товара == цене товара в корзине
         assert product_price == product_price_in_basket, (
             "Price of the product does not match the price in the cart")
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*AddPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def success_message_should_disappear(self):
+        assert self.is_disappeared(*AddPageLocators.SUCCESS_MESSAGE), (
+            "Success message did not disappear, although it should have been")
