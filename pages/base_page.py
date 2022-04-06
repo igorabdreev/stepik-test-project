@@ -2,6 +2,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
+from .locators import BasePageLocators
 
 link_1= "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=newYear2019"
 
@@ -11,6 +12,19 @@ class BasePage():            # вспомогательные методы дл�
         self.browser = browser
         self.url = url
         self.browser.implicitly_wait(timeout)
+        # общая настройка
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
+        link.click()
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+        # добавили в base_page так как часто вызываем эти функции
+
+    def go_to_basket_page(self):
+        basket = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
+        basket.click()
 
     def open(self):
         self.browser.get(self.url)
