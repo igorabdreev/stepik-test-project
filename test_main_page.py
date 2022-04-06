@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 import pytest
-from pages.login_page import LoginPage
+from pages.base_page import BasePage
 # py -m pytest -v --tb=line --language=en test_main_page.py
 from pages.main_page import MainPage
 from pages.basket_page import BasketPage
@@ -24,9 +24,18 @@ from pages.basket_page import BasketPage
     #login_page.should_be_login_page()
 
 
+#def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
+    #link = "http://selenium1py.pythonanywhere.com/en-gb/"
+    #page = MainPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
+    #page.open()  # открываем страницу
+    #page.go_to_basket_page()
+    #basket_page = BasketPage(browser, browser.current_url)  # Объект страницы корзины
+    #basket_page.should_not_be_product_in_basket()  # Ожидаем, что в корзине нет товаров
+    #basket_page.basket_is_empty()  # Ожидаем, что есть текст о том что корзина пуста
+
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/"
-    page = MainPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
+    page = BasePage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
     page.open()  # открываем страницу
     page.go_to_basket_page()
     basket_page = BasketPage(browser, browser.current_url)  # Объект страницы корзины

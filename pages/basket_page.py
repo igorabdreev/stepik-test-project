@@ -7,13 +7,13 @@ class BasketPage(BasePage):
         #assert self.is_element_present(*BasePageLocators.BASKET_BUTTON), (
             #"basket button is not presented")
         # Проверяем что кнопка есть
-        def should_be_message_about_empty_basket(self):
-            """Ожидаем, что есть текст о том что корзина пуста
-            """
-            text_about_empty_basket = self.browser.find_element(
-                *BasketIsEmpty.BASKET_EMPTY_TEXT).text
-            assert text_about_empty_basket == "Your basket is empty. Continue shopping", (
-                "Text about empty basket is not present")
+        #def should_be_message_about_empty_basket(self):
+            #Ожидаем, что есть текст о том что корзина пуста
+
+        text_about_empty_basket = self.browser.find_element(
+            *BasketIsEmpty.BasketIsEmptyText).text
+        assert text_about_empty_basket == "Your basket is empty. Continue shopping", (
+            "Text about empty basket is not present")
 
     def should_not_be_product_in_basket(self):
         #Ожидаем, что в корзине нет товаров
